@@ -1,0 +1,31 @@
+{
+  "name": "playwrightjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "report": "allure serve allure-results",
+    "test:report": "playwright test || allure serve allure-results",
+    "test:report:win": "playwright test & allure serve allure-results"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroslaff/PlaywrightJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/miroslaff/PlaywrightJS/issues"
+  },
+  "homepage": "https://github.com/miroslaff/PlaywrightJS#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
+    "allure": "^3.22.1",
+    "allure-playwright": "^3.14.0",
+    "playwright-ctrf-json-reporter": "^0.2.0"
+  }
+}
