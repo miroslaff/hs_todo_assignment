@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { LoginPage } from "../dsl/web/loginPage";
+import { ToDoPage } from "../dsl/web/todoPage";
 import { Context } from "./context";
 
 class DslRegistry {
@@ -11,16 +11,16 @@ class DslRegistry {
 }
 
 class WebRegister {
-    #loginPage: LoginPage
+    #loginPage: ToDoPage
     #ctx: Context
 
     constructor(ctx: Context) {
         this.#ctx = ctx
     }
 
-    get loginPage() { // lazy loading
+    get loginPage() {
         if (!this.#loginPage) {
-            this.#loginPage = new LoginPage(this.#ctx)
+            this.#loginPage = new ToDoPage(this.#ctx)
         }
         return this.#loginPage
     }

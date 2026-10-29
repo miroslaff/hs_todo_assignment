@@ -1,0 +1,6 @@
+{
+  "name": "Playwright Test Report",
+  "output": "./allure-report",
+  "historyPath": "./history.jsonl",
+  "appendHistory": true
+}
