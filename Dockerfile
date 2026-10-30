@@ -9,9 +9,8 @@ RUN git clone https://github.com/cypress-io/cypress-example-kitchensink.git ./ap
 RUN cd ./app && npm ci --no-engine-strict --quiet
 
 COPY package*.json ./
-
 RUN npm ci
 
 COPY . .
 
-CMD ["sh", "-c", "cd ./app && npm start & npx wait-on http://localhost:8080 --timeout 60000 && cd .. && npm test"]
+CMD ["sh", "-c", "(cd ./app && npm start) & npx wait-on http://localhost:8080 --timeout 60000 && npm test"]
