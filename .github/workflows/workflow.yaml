@@ -9,7 +9,7 @@ permissions:
   id-token: write
 
 jobs:
-  all-tests:
+  assesment-suite:
     runs-on: ubuntu-latest
 
     steps:
