@@ -3,6 +3,12 @@ name: Dockerized Assesment Suite
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+
 jobs:
   docker-assesment-suite:
     runs-on: ubuntu-latest
