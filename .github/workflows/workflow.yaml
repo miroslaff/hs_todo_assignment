@@ -61,7 +61,13 @@ jobs:
           subfolder: allure-results
           gh_pages: gh-pages-dir
           copy_history: true
-          check_files: true
+
+      - name: Flatten Report Directory Structure
+        if: always()
+        run: |
+          if [ -d "gh-pages-dir/allure-report" ]; then
+            cp -r gh-pages-dir/allure-report/* gh-pages-dir/
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
