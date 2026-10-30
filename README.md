@@ -22,7 +22,8 @@ Although not needer for this project, the framework allows for easy integration 
 hs_todo_assignment/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml
+│       └── workflow.yml
+│       └── docker-workflow.yml
 ├── core/
 │   └── helpers.ts              # Common helper functions unrelated to UI/API
 │   └── context.ts              # Context definition and fixture enablement
@@ -46,3 +47,9 @@ hs_todo_assignment/
 ├── allure-report/      # Generated report
 └── allurerc.json       # Configuration file
 └── history.jsonl       # Single file containing aggregated historical trends
+```
+#### CI
+By leveraging GitHub Actions, the solution features two workflows for executing the test suite:
+- Docker-based workflow, which packages both the app under test and the automation framework in a docker and executes
+- Direct checkout and execute workflow, which doesnt feature any dockerisation
+The repository also has GitHub Pages enabled, so the Allure report is freshly generated after each workflow dispatch and published to the GitHub Page (https://miroslaff.github.io/hs_todo_assignment/)

@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log
+allure-results
+allure-report
+gh-pages-dir
+deploy-dir
+history.jsonl
+.git
+.github

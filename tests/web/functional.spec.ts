@@ -169,6 +169,3 @@ test.describe("Task completion and filtering", () => {
     })
     
 })
-test("", async ({ ctx }) => {
-    await test.step("", async () => { })
-})
