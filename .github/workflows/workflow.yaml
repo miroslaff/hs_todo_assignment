@@ -61,16 +61,20 @@ jobs:
             cp gh-pages-dir/history.jsonl ./history.jsonl
           fi
 
-      - name: Generate Allure 3 Report
+      - name: Generate Allure 3 Report & Update History
         if: always()
-        run: npx allure generate allure-results --clean
+        run: |
+          npx allure generate allure-results --clean
+          npx allure history allure-results
 
       - name: Prepare Deployment Directory
         if: always()
         run: |
           mkdir -p deploy-dir
           cp -r allure-report/* deploy-dir/
-          cp history.jsonl deploy-dir/
+          if [ -f "history.jsonl" ]; then
+            cp history.jsonl deploy-dir/
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

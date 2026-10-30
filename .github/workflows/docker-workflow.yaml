@@ -11,8 +11,55 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js (for Allure CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Allure CLI
+        run: npm install -g allure
+
       - name: Build Docker Image
         run: docker build -t hs-todo-suite .
 
-      - name: Run Playwright Suite in Docker Container
-        run: docker run --rm --ipc=host hs-todo-suite
+      - name: Run Tests in Docker Container
+        if: always()
+        run: |
+          mkdir -p allure-results
+          docker run --rm --ipc=host -v ${{ github.workspace }}/allure-results:/app/allure-results hs-todo-suite
+
+      - name: Fetch Previous History
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages-dir
+
+      - name: Restore History File
+        if: always()
+        run: |
+          if [ -f "gh-pages-dir/history.jsonl" ]; then
+            cp gh-pages-dir/history.jsonl ./history.jsonl
+          fi
+
+      - name: Generate Allure 3 Report
+        if: always()
+        run: allure generate allure-results --clean
+
+      - name: Prepare Deployment Directory
+        if: always()
+        run: |
+          mkdir -p deploy-dir
+          cp -r allure-report/* deploy-dir/
+          if [ -f "history.jsonl" ]; then
+            cp history.jsonl deploy-dir/
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: deploy-dir
+          force_orphan: true
