@@ -53,3 +53,6 @@ By leveraging GitHub Actions, the solution features two workflows for executing 
 - Docker-based workflow, which packages both the app under test and the automation framework in a docker and executes
 - Direct checkout and execute workflow, which doesnt feature any dockerisation
 The repository also has GitHub Pages enabled, so the Allure report is freshly generated after each workflow dispatch and published to the GitHub Page (https://miroslaff.github.io/hs_todo_assignment/)
+## Future Improvements
+### Coverage
+The current suite of tests can be considered a "smoke suite", but its far from enough. Introducing more randomized tests, including one that perform actions on more than one task, and even testing the task count limitations is a good place to start improving on the coverage.
