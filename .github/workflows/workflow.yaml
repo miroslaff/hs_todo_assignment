@@ -46,7 +46,7 @@ jobs:
       - name: Run Todo App Tests
         run: npm test
 
-      - name: Get Allure History
+      - name: Checkout gh-pages
         uses: actions/checkout@v4
         if: always()
         continue-on-error: true
@@ -55,18 +55,17 @@ jobs:
           path: gh-pages-dir
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@v1.11
+        uses: mgrybyk/allure-report-branch-action@v1
         if: always()
         with:
-          allure_results: allure-results
-          allure_history: allure-history
+          subfolder: allure-results
           gh_pages: gh-pages-dir
-          keep_reports: 20
+          max_reports: 20
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-history
+          publish_dir: gh-pages-dir
           force_orphan: true
