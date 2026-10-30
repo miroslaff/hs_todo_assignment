@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miroslaff/PlaywrightJS.git"
+    "url": "git+https://github.com/miroslaff/hs_todo_assignment.git"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +25,6 @@
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.1.1",
     "allure": "^3.22.1",
-    "allure-playwright": "^3.14.0",
-    "playwright-ctrf-json-reporter": "^0.2.0"
+    "allure-playwright": "^3.14.0"
   }
 }

@@ -11,18 +11,18 @@ class DslRegistry {
 }
 
 class WebRegister {
-    #loginPage: ToDoPage
+    #todoPage: ToDoPage
     #ctx: Context
 
     constructor(ctx: Context) {
         this.#ctx = ctx
     }
 
-    get loginPage() {
-        if (!this.#loginPage) {
-            this.#loginPage = new ToDoPage(this.#ctx)
+    get todoPage() {
+        if (!this.#todoPage) {
+            this.#todoPage = new ToDoPage(this.#ctx)
         }
-        return this.#loginPage
+        return this.#todoPage
     }
 }
 

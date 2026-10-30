@@ -4,18 +4,11 @@ A simple ToDo application offering the creation and management of todo tasks in 
 ## Testing Strategy
 After initial inspection of the application, it seems that it doesn't rely on API for any of the actions, so the testing would be mostly on the UI side, with a small number of backend-ish tests.
 ### Functional Testing
-#### UI
 - Creating, editing and deleting tasks by using the page input/button elements
 - Testing task content i.e. special characters, cyrilic support etc.
 - Task completion and filtering
-- Handling more tasks that the screen can display
-#### Scripted
-- Creating a complete predefined (read from file) todo list by manipulating the local storage
-- Creating a complete radomized (generated on the fly) todo list by manipulating the local storage
-- Edit and clean-up the todo list by manipulating the local storage
 ### Non-functional Testing
 As noted above, since there is no API involved, performance testing is not necessary as the application behaves as good as the user's hardware capabilities. However, since we rely on inputs for our task creation, simple security checks can be covered.
-#### Security
 - Create a task with hyperlink as content
 - Create a task with executable script as content
 - Create a task with html as content
@@ -31,6 +24,7 @@ hs_todo_assignment/
 │   └── workflows/
 │       └── ci.yml
 ├── core/
+│   └── helpers.ts              # Common helper functions unrelated to UI/API
 │   └── context.ts              # Context definition and fixture enablement
 │   └── regtisters.ts           # Simple Register classes for allowing API & Page Object access via the Context variable
 ├── data/
@@ -42,7 +36,6 @@ hs_todo_assignment/
 ├── tests/
 │   ├── web/
 │   │   └── functional.spec.ts
-│   │   └── scripted.spec.ts
 │   │   └── security.spec.ts
 ```
 #### Reporting

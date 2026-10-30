@@ -1,26 +1,29 @@
 import { Page, test as base } from "@playwright/test";
 import { DslRegistry } from "./registers";
+import { Helpers } from "./helpers";
 
 type ContextFixture = {
-    web: Context;
+    ctx: Context;
 }
 
 export const test = base.extend<ContextFixture>({
-    web: async ({page}, use) => {
-        const ctx = new Context(page)
-        await use(ctx);
+    ctx: async ({page}, use) => {
+        const context = new Context(page)
+        await use(context);
     }
 })
 
 
 
 class Context {
-    dsl: DslRegistry;
+    readonly dsl: DslRegistry;
     readonly page: Page;
-    
+    readonly helpers: Helpers
+
     constructor(page: Page) {
         this.page = page;
         this.dsl = new DslRegistry(this);
+        this.helpers = new Helpers();
     }
 }
 
