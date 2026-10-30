@@ -40,9 +40,6 @@ test.describe("Task Creation, Edit and Removal", () => {
             await expect(ctx.page.locator(ctx.dsl.pageObjects.todoPage.selectors.taskItems)).toHaveCount(2)
             task = await ctx.dsl.pageObjects.todoPage.getTask("Walk the dog")
             originalName = await task.textContent() ?? ""
-            if (originalName === "Walk the dog") {
-                console.log("stoka")
-            }
         })
         let newName: string
         await test.step("Editing the task", async () => {
