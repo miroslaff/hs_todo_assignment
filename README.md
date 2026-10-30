@@ -179,4 +179,4 @@ npx allure open allure-report
 
 ## Future Improvements
 ### Coverage
-The current suite of tests can be considered a "smoke suite", but its far from enough. Introducing more randomized tests, including one that perform actions on more than one task, and even testing the task count limitations is a good place to start improving on the coverage.
+The current suite of tests can be considered a "smoke suite", but its far from enough. Introducing more randomized tests, including ones that perform actions on more than one task, and even testing the task count limitations is a good place to start improving on the coverage.
