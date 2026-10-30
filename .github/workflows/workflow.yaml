@@ -60,7 +60,8 @@ jobs:
         with:
           subfolder: allure-results
           gh_pages: gh-pages-dir
-          max_reports: 20
+          copy_history: true
+          check_files: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
