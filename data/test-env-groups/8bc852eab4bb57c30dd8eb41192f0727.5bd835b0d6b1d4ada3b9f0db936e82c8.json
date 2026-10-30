@@ -1,0 +1,1 @@
+{"id":"8bc852eab4bb57c30dd8eb41192f0727.5bd835b0d6b1d4ada3b9f0db936e82c8","fullName":"web/securlity.spec.ts › Various input field injections › Create a task with 'javascript:alert('hello world!')'","name":"Create a task with 'javascript:alert('hello world!')'","status":"passed","testResultsByEnv":{"default":"5abab83dbbd247664324486a4f39ee3b"}}

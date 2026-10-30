@@ -1,0 +1,1 @@
+{"id":"ac968b478ca3e3266028d701d8824138.5bd835b0d6b1d4ada3b9f0db936e82c8","fullName":"web/securlity.spec.ts › Various input field injections › Create a task with '\"><script>alert(1)</script>'","name":"Create a task with '\"><script>alert(1)</script>'","status":"passed","testResultsByEnv":{"default":"d91191ae66cd840e5dda101a75274802"}}

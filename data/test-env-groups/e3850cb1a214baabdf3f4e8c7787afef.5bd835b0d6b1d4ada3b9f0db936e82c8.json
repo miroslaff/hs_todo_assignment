@@ -1,0 +1,1 @@
+{"id":"e3850cb1a214baabdf3f4e8c7787afef.5bd835b0d6b1d4ada3b9f0db936e82c8","fullName":"web/securlity.spec.ts › Various input field injections › Create a task with '<script>alert('hello world!')</script>'","name":"Create a task with '<script>alert('hello world!')</script>'","status":"passed","testResultsByEnv":{"default":"f7a8cabb2b8608e9d10e0d36187f5d78"}}
