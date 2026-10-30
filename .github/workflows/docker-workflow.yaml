@@ -1,4 +1,4 @@
-name: Dockerized Security Tests
+name: Dockerized Assesment Suite
 
 on:
   workflow_dispatch:

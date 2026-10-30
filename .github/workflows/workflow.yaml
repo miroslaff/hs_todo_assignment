@@ -1,4 +1,4 @@
-name: Todo App Test Suite
+name: Assesment Suite
 
 on:
   workflow_dispatch:
